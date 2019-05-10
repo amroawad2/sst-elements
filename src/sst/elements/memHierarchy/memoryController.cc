@@ -172,6 +172,16 @@ MemController::MemController(ComponentId_t id, Params &params) : Component(id), 
 
     }
 
+    bool gotRegion = false;
+    uint64_t addrStart = params.find<uint64_t>("addr_range_start", 0, gotRegion);
+    uint64_t addrEnd = params.find<uint64_t>("addr_range_end", (uint64_t) - 1, found);
+    gotRegion |= found;
+    string ilSize = params.find<std::string>("interleave_size", "0B", found);
+    gotRegion |= found;
+    string ilStep = params.find<std::string>("interleave_step", "0B", found);
+    gotRegion |= found;
+
+
     if (isPortConnected("direct_link")) {
         Params linkParams = params.find_prefix_params("cpulink.");
         linkParams.insert("port", "direct_link");
