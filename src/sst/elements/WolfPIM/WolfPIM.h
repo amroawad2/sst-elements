@@ -43,7 +43,13 @@ public:
     SST_ELI_DOCUMENT_PARAMS(
 	{ "verbose", 		"Set the level of output verbosity, 0 is no output, higher is more output" },
 	{ "max_cycles", 	"Maximum number of cycles to execute" },
-	{ "print_fp_reg",		"Print floating-point registers true/false, auto set to true if verbose > 16" }
+	{ "dpu_count",		"The number of DPUs per DIMM rank" },
+	{ "threads_per_dpu",	"The number of tasklets can run per DPU" },
+	{ "memory_per_dpu",	"The size of memory per DPU" },
+	{ "dpu_clock",	"The frequency each DPU runs at" },
+	{ "mailbox_access_latency",	"The latency to access mailboxes" },
+	{ "mailbox_count",	"The number of mailboxes per DIMM rank" },
+	{ "mailbox_size",	"The size of mailbox" }
     )
 
     SST_ELI_DOCUMENT_STATISTICS(
